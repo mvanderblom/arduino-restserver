@@ -2,7 +2,7 @@
 #define restsettings_h
 
 #ifndef ROUTES_TOTAL
-#define ROUTES_TOTAL 5
+#define ROUTES_TOTAL 1
 #endif
 
 #ifndef ROUTES_LENGHT
@@ -13,13 +13,18 @@
 #define QUERY_LENGTH 50
 #endif
 
+
+#ifndef BODY_LENGTH
+#define BODY_LENGTH 250
+#endif
+
 #ifndef HTTP_COMMON_HEADER
 #define HTTP_COMMON_HEADER "HTTP/1.1 200 OK\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: POST, GET, PUT, OPTIONS\r\nContent-Type: application/json\r\nConnection: close\r\n"
-#endif HTTP_COMMON_HEADER
+#endif
 
 #ifndef OUTPUT_BUFFER_SIZE
 #define OUTPUT_BUFFER_SIZE 250
-#endif OUTPUT_BUFFER_SIZE
+#endif
 
 #define JSON_START() addToBuffer("{ ");
 #define JSON_CLOSE() addToBuffer(" }");

@@ -3,14 +3,14 @@
 
 // Include Arduino header
 #include "Arduino.h"
-#include "Log.h"
-#include <UIPEthernet.h>
+#include <Ethernet.h>
 #include "RestSettings.h"
 
 struct Routes {
   char * method;
   char * name;
-  void (*callback)(char * params);
+  void (*callback)(char* params, char* body, uint8_t* bodySize);
+//  void (*callback)(char * params, char * body);
 };
 
 class RestServer {
@@ -19,7 +19,8 @@ public:
   
   void run();
   
-  void addRoute(char * method, char * route, void (*f)(char *));
+  void addRoute(char * method, char * route, void (*f)(char*, char* params, uint8_t));
+//  void addRoute(char * method, char * route, void (*f)(char *, char *));
   
   void addData(char* name, String& value);
   void addData(char* name, uint16_t value);
